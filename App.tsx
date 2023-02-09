@@ -1,7 +1,8 @@
 import React from 'react';
-import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
-import {SafeAreaView} from 'react-native';
-import {PokemonsContainer} from './src/containers/PokemonsContainer';
+import {ApolloClient} from '@apollo/client';
+import {ApolloProvider} from '@apollo/client';
+import {InMemoryCache} from '@apollo/client';
+import Home from './src/screens/Home';
 const client = new ApolloClient({
   uri: 'https://graphql-pokemon2.vercel.app',
   cache: new InMemoryCache(),
@@ -9,9 +10,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <SafeAreaView>
-        <PokemonsContainer />
-      </SafeAreaView>
+      <Home />
     </ApolloProvider>
   );
 }

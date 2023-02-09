@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import {useQuery} from '@apollo/client';
 import {GET_POKEMONS} from '../graphql/get-pokemons';
-import { Pokemon } from '../components/pokemons';
+import {Pokemon} from '../components/pokemons';
 
 export const PokemonsContainer = () => {
   const {data: {pokemons = []} = {}} = useQuery(GET_POKEMONS, {
@@ -11,7 +11,7 @@ export const PokemonsContainer = () => {
   return (
     <FlatList
       data={pokemons}
-      renderItem={({item}) => <Pokemon pokemon={item}></Pokemon>}
+      renderItem={({item}) => <Pokemon pokemon={item} />}
     />
   );
 };
