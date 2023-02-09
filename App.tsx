@@ -1,8 +1,8 @@
 import React from 'react';
-import {ApolloClient} from '@apollo/client';
-import {ApolloProvider} from '@apollo/client';
-import {InMemoryCache} from '@apollo/client';
+import {ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
 import Home from './src/screens/Home';
+import {Provider} from 'react-redux';
+import {pokemonStore} from './src/redux/store';
 const client = new ApolloClient({
   uri: 'https://graphql-pokemon2.vercel.app',
   cache: new InMemoryCache(),

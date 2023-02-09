@@ -1,0 +1,4 @@
+export const UPDATE_POKEMON = 'UPDATE_POKEMON';
+export const DELETE_POKEMON = 'DELETE_POKEMON';
+export const CREATE_POKEMON = 'CREATE_POKEMON';
+export const READ_POKEMON = 'READ_POKEMON';
