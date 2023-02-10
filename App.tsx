@@ -10,7 +10,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Home />
+      <Provider store={pokemonStore}>
+        <Home />
+      </Provider>
     </ApolloProvider>
   );
 }

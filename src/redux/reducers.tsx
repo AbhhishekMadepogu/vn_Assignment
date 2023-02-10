@@ -1,11 +1,14 @@
+import {useQuery} from '@apollo/client';
+import {GET_POKEMONS} from '../graphql/get-pokemons';
 import {
   CREATE_POKEMON,
   READ_POKEMON,
   UPDATE_POKEMON,
   DELETE_POKEMON,
 } from './actiontype';
+import {PokemonsContainer} from '../containers/PokemonsContainer';
 const initialState = {
-  pokemon: [],
+  pokemons: PokemonsContainer,
 };
 export const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
