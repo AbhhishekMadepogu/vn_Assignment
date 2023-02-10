@@ -1,4 +1,3 @@
-import {stat} from 'fs/promises';
 import {
   CREATE_POKEMON,
   READ_POKEMON,

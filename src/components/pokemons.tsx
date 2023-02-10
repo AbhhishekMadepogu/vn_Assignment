@@ -11,24 +11,26 @@ import {
 export function Pokemon({pokemon}) {
   return (
     <View style={styles.cardContainer}>
-      <Pressable
-        style={styles.closeButton}
-        onPress={() => {
-          console.log('Close');
-        }}>
-        <Text style={styles.buttonText}>X</Text>
-      </Pressable>
+      <View style={styles.buttonContainer}>
+        <Pressable
+          style={styles.closeButton}
+          onPress={() => {
+            console.log('Close');
+          }}>
+          <Text style={styles.buttonText}>X</Text>
+        </Pressable>
+        <Pressable
+          style={styles.editButton}
+          onPress={() => {
+            console.log('Edit');
+          }}>
+          <Text style={styles.buttonText}>Edit</Text>
+        </Pressable>
+      </View>
       <View style={styles.card}>
         <Text style={styles.text}>{pokemon.name}</Text>
         <Image source={{uri: pokemon.image}} style={styles.img} />
       </View>
-      <Pressable
-        style={styles.editButton}
-        onPress={() => {
-          console.log('Edit');
-        }}>
-        <Text style={styles.buttonText}>Edit</Text>
-      </Pressable>
     </View>
   );
 }
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#37796C',
     marginBottom: 10,
     width: Dimensions.get('window').width - 10,
-    borderRadius: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 60,
     alignSelf: 'center',
   },
   card: {
@@ -79,5 +82,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
