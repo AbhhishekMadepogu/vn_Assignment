@@ -1,21 +1,20 @@
-import {useQuery} from '@apollo/client';
-import {GET_POKEMONS} from '../graphql/get-pokemons';
+import {stat} from 'fs/promises';
 import {
   CREATE_POKEMON,
   READ_POKEMON,
   UPDATE_POKEMON,
   DELETE_POKEMON,
 } from './actiontype';
-import {PokemonsContainer} from '../containers/PokemonsContainer';
+
 const initialState = {
-  pokemons: PokemonsContainer,
+  pokemon: [],
 };
-export const pokemonReducer = (state = initialState, action) => {
+export const pokemonReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case CREATE_POKEMON:
       break;
     case READ_POKEMON:
-      break;
+      return {...state, pokemon: action.payload};
     case UPDATE_POKEMON:
       break;
     case DELETE_POKEMON:

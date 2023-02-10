@@ -7,8 +7,9 @@ import {
 export const create_pokemon = () => ({
   type: CREATE_POKEMON,
 });
-export const read_pokemon = () => ({
+export const read_pokemon = (data: any) => ({
   type: READ_POKEMON,
+  payload: data,
 });
 export const update_pokemon = () => ({
   type: UPDATE_POKEMON,

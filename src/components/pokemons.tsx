@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   card: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    marginHorizontal: 10,
   },
   img: {
     width: 100,
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 50,
     resizeMode: 'contain',
+    backgroundColor: '#fff',
   },
   text: {
     fontWeight: 'bold',
