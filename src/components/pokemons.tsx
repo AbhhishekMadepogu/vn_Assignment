@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -38,13 +38,13 @@ export function Pokemon({pokemon, deletePokemon, editPokemon}) {
               `Are you sure you want to delete ${pokemon.name}`,
               [
                 {
-                  text: 'Ok',
+                  text: 'Yes',
                   onPress: () => {
                     deletePokemon(pokemon);
                   },
                 },
                 {
-                  text: 'Cancel',
+                  text: 'No',
                   onPress: () => {},
                   style: 'cancel',
                 },
@@ -65,6 +65,7 @@ export function Pokemon({pokemon, deletePokemon, editPokemon}) {
         {editable ? (
           <View>
             <TextInput
+              autoFocus={true}
               style={styles.editText}
               value={pokemonName}
               maxLength={10}

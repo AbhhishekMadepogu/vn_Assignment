@@ -12,7 +12,6 @@ export const PokemonsContainer = () => {
   });
   useMemo(() => {
     dispatch(read_pokemon(pokemons));
-    console.log('Dispatch read');
   }, [dispatch, pokemons]);
   const deletePokemon = (pokemon: any) => {
     dispatch(delete_pokemon(pokemon));
@@ -21,7 +20,7 @@ export const PokemonsContainer = () => {
     dispatch(update_pokemon(pokemon));
   };
   const data = useSelector(state => state.pokemon);
-  console.log('data', data);
+
   return (
     <FlatList
       extraData={data}
