@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
 import {
   Text,
   View,
@@ -6,29 +6,77 @@ import {
   StyleSheet,
   Dimensions,
   Pressable,
+  TextInput,
+  Alert,
 } from 'react-native';
-
-export function Pokemon({pokemon}) {
+const width = Dimensions.get('window').width;
+export function Pokemon({pokemon, deletePokemon, editPokemon}) {
+  const [editable, setEditable] = useState(false);
+  const [pokemonName, setPokemonName] = useState('');
+  const handleEdit = () => {
+    if (editable) {
+      setEditable(false);
+      const newPokemon = {
+        id: pokemon.id,
+        name: pokemonName,
+        image: pokemon.image,
+      };
+      editPokemon(newPokemon);
+    } else {
+      setPokemonName(pokemon.name);
+      setEditable(true);
+    }
+  };
   return (
     <View style={styles.cardContainer}>
       <View style={styles.buttonContainer}>
         <Pressable
           style={styles.closeButton}
           onPress={() => {
-            console.log('Close');
+            Alert.alert(
+              'Delete Pokemon',
+              `Are you sure you want to delete ${pokemon.name}`,
+              [
+                {
+                  text: 'Ok',
+                  onPress: () => {
+                    deletePokemon(pokemon);
+                  },
+                },
+                {
+                  text: 'Cancel',
+                  onPress: () => {},
+                  style: 'cancel',
+                },
+              ],
+            );
           }}>
           <Text style={styles.buttonText}>X</Text>
         </Pressable>
         <Pressable
           style={styles.editButton}
           onPress={() => {
-            console.log('Edit');
+            handleEdit();
           }}>
-          <Text style={styles.buttonText}>Edit</Text>
+          <Text style={styles.buttonText}>{editable ? 'Save' : 'Edit'}</Text>
         </Pressable>
       </View>
       <View style={styles.card}>
-        <Text style={styles.text}>{pokemon.name}</Text>
+        {editable ? (
+          <View>
+            <TextInput
+              style={styles.editText}
+              value={pokemonName}
+              maxLength={10}
+              onChangeText={text => {
+                setPokemonName(text);
+              }}
+            />
+          </View>
+        ) : (
+          <Text style={styles.text}>{pokemon.name}</Text>
+        )}
+
         <Image source={{uri: pokemon.image}} style={styles.img} />
       </View>
     </View>
@@ -38,7 +86,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: '#37796C',
     marginBottom: 10,
-    width: Dimensions.get('window').width - 10,
+    width: width - 10,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 60,
     alignSelf: 'center',
@@ -86,5 +134,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  editText: {
+    backgroundColor: '#fff',
+    color: '#000',
+    fontSize: 19,
+    fontWeight: 'bold',
+    width: width / 3,
+    marginRight: 10,
+    alignSelf: 'center',
   },
 });
