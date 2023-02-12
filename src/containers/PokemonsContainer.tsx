@@ -15,15 +15,19 @@ export const PokemonsContainer = () => {
   const {data: {pokemons = []} = {}} = useQuery(GET_POKEMONS, {
     variables: {first: 100},
   });
+  //Storing the data in redux
   useMemo(() => {
     dispatch(read_pokemon(pokemons));
   }, [dispatch, pokemons]);
+  //Performing Delete Operation on Redux
   const deletePokemon = (pokemon: any) => {
     dispatch(delete_pokemon(pokemon));
   };
+  //performing update on redux
   const editPokemon = (pokemon: any) => {
     dispatch(update_pokemon(pokemon));
   };
+  //performing Create on Redux
   const createPokemon = (pokemon: any) => {
     dispatch(create_pokemon(pokemon));
   };
@@ -71,6 +75,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 20,
-    marginBottom: 10,
+    marginVertical: 10,
   },
 });
