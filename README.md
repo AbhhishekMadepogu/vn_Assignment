@@ -17,3 +17,6 @@ The app fetches first gen pokemons from api:https://graphql-pokemon2.vercel.app/
 Website:https://graphql-pokeapi.vercel.app/
 Allows the user to perform CRUD operations on the fetched data through redux
 Screenshots:
+![Simulator Screen Shot - iPhone 14 Pro - 2023-02-11 at 23 14 26](https://user-images.githubusercontent.com/50969821/218292724-dfed9f10-b39c-46cb-b675-b9044b64f767.png)
+![Simulator Screen Shot - iPhone 14 Pro - 2023-02-11 at 23 14 32](https://user-images.githubusercontent.com/50969821/218292729-3776396a-4980-4254-8f3c-d69d4b062004.png)
+![Simulator Screen Shot - iPhone 14 Pro - 2023-02-11 at 23 15 01](https://user-images.githubusercontent.com/50969821/218292731-e75d429b-1484-4759-a72d-8d7eb15c3459.png)
