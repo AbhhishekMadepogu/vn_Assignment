@@ -11,7 +11,7 @@ const initialState = {
 export const pokemonReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case CREATE_POKEMON:
-      break;
+      return {...state, pokemon: [].concat(action.payload, state.pokemon)};
     case READ_POKEMON:
       return {...state, pokemon: action.payload};
     case UPDATE_POKEMON:
