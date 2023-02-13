@@ -4,20 +4,19 @@ import {
   UPDATE_POKEMON,
   DELETE_POKEMON,
 } from './actiontype';
-import {pokemon} from '../utils/types';
-export const create_pokemon = (pokemon: pokemon) => ({
+export const create_pokemon = (pokemon: any) => ({
   type: CREATE_POKEMON,
   payload: pokemon,
 });
-export const read_pokemon = (data: [pokemon]) => ({
+export const read_pokemon = (data: any) => ({
   type: READ_POKEMON,
   payload: data,
 });
-export const update_pokemon = (pokemon: pokemon) => ({
+export const update_pokemon = (pokemon: any) => ({
   type: UPDATE_POKEMON,
   payload: pokemon,
 });
-export const delete_pokemon = (pokemon: pokemon) => ({
+export const delete_pokemon = (pokemon: any) => ({
   type: DELETE_POKEMON,
   payload: pokemon,
 });
