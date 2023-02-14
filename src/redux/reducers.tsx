@@ -1,3 +1,4 @@
+import {pokemonDetails} from '../utils/types';
 import {
   CREATE_POKEMON,
   READ_POKEMON,
@@ -18,13 +19,16 @@ export const pokemonReducer = (state = initialState, action: any) => {
       return {
         ...state,
         pokemon: state.pokemon.map(
-          pokemon => [action.payload].find(o => o.id === pokemon.id) || pokemon,
+          (pokemon: pokemonDetails) =>
+            [action.payload].find(o => o.id === pokemon.id) || pokemon,
         ),
       };
     case DELETE_POKEMON:
       return {
         ...state,
-        pokemon: state.pokemon.filter(a => a.id !== action.payload.id),
+        pokemon: state.pokemon.filter(
+          (a: pokemonDetails) => a.id !== action.payload.id,
+        ),
       };
     default:
       return state;
