@@ -10,6 +10,10 @@ import {
   read_pokemon,
   update_pokemon,
 } from '../redux/action';
+type pokemonDetails = {id: string; name: String; image: String};
+interface Mystate {
+  pokemon: [pokemonDetails];
+}
 export const PokemonsContainer = () => {
   const dispatch = useDispatch();
   const {data: {pokemons = []} = {}} = useQuery(GET_POKEMONS, {
@@ -31,7 +35,7 @@ export const PokemonsContainer = () => {
   const createPokemon = (pokemon: any) => {
     dispatch(create_pokemon(pokemon));
   };
-  const data = useSelector(state => state.pokemon);
+  const data = useSelector((state: Mystate) => state.pokemon);
 
   return (
     <>
