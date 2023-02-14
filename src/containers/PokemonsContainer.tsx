@@ -10,7 +10,7 @@ import {
   read_pokemon,
   update_pokemon,
 } from '../redux/action';
-type pokemonDetails = {id: string; name: String; image: String};
+import {pokemonDetails} from '../utils/types';
 interface Mystate {
   pokemon: [pokemonDetails];
 }

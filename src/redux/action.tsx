@@ -4,7 +4,7 @@ import {
   UPDATE_POKEMON,
   DELETE_POKEMON,
 } from './actiontype';
-type pokemonDetails = {id: String; name: String; image: String};
+import {pokemonDetails} from '../utils/types';
 export const create_pokemon = (pokemon: pokemonDetails) => ({
   type: CREATE_POKEMON,
   payload: pokemon,
